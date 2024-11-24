@@ -16,10 +16,12 @@ function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(formDataRaising),
     });
-    const data = response.json();
+    console.log(formDataRaising)
+    const data = await response.json();
     console.log(data);
+    
   }
   
   const handleChangeRaising = (e) => {
@@ -27,7 +29,7 @@ function App() {
     const value = e.target.value;
     console.log(name + " " + value);
     setFormDataRaising({
-      ...formData,
+      ...formDataRaising,
       [name]: value,
     });
   };
